@@ -1,0 +1,18 @@
+class Solution {
+public:
+int tilt=0;
+int findsum(TreeNode* root){
+     if(root==NULL){
+          return 0;
+      }  
+     
+      int l= findsum(root->left);
+      int r=findsum(root->right);
+      tilt=tilt+ abs(l-r);
+      return(l+r+root->val);
+}
+    int findTilt(TreeNode* root) {
+      findsum(root);
+      return tilt;
+    }
+};
